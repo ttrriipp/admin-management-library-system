@@ -15,5 +15,10 @@ namespace AdminManagementLibrarySystem
         {
             Admin admin = new Admin("asdad", "asjkfdhnas");
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

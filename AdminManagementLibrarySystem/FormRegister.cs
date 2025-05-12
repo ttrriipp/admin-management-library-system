@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace AdminManagementLibrarySystem
 {
-    public partial class FormLogin : Form
+    public partial class FormRegister : Form
     {
-        public FormLogin()
+        public FormRegister()
         {
             InitializeComponent();
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void FormRegister_Load(object sender, EventArgs e)
         {
 
         }
