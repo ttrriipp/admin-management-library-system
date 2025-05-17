@@ -1,24 +1,58 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using AdminManagementLibrarySystem.Models;
 
 namespace AdminManagementLibrarySystem
 {
-    public partial class Form1 : Form
+    public partial class FormMainAdmin : Form
     {
-        public Form1()
+        public FormMainAdmin()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void show(Form frm)
         {
-            Admin admin = new Admin("asdad", "asjkfdhnas");
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
+            frm.MdiParent = this;
+	    frm.Dock = DockStyle.Fill;
+            frm.Show();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnBooks_Click(object sender, EventArgs e)
+        {
+            show(new FormBooks());
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnStudents_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLoan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            FormLogin loginForm = new FormLogin();
+            loginForm.Show();
+            Hide();
+        }
+
+        private void FormMainAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

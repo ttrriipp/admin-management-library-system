@@ -10,23 +10,31 @@ using System.Windows.Forms;
 
 namespace AdminManagementLibrarySystem
 {
-    public partial class FormLogin : Form
+    public partial class FormAddBook : Form
     {
-        public FormLogin()
+        public FormAddBook()
         {
             InitializeComponent();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void FormAddBook_Load(object sender, EventArgs e)
         {
-            FormMainAdmin FMA = new FormMainAdmin();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             Hide();
-            FMA.Show();
         }
     }
 }

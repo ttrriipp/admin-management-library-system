@@ -73,6 +73,16 @@ namespace AdminManagementLibrarySystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap magnifying_glass_icon_isolated_on_white_background_search_illustration_vector {
+            get {
+                object obj = ResourceManager.GetObject("magnifying-glass-icon-isolated-on-white-background-search-illustration-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap profile_icon_design_free_vector {
             get {
                 object obj = ResourceManager.GetObject("profile-icon-design-free-vector", resourceCulture);
