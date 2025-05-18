@@ -62,7 +62,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(251)))), ((int)(((byte)(232)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(83)))), ((int)(((byte)(114)))));
-            this.label1.Location = new System.Drawing.Point(2, 14);
+            this.label1.Location = new System.Drawing.Point(1, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 31);
@@ -74,7 +74,7 @@
             this.txtSearch.BackColor = System.Drawing.Color.White;
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(42, 3);
+            this.txtSearch.Location = new System.Drawing.Point(41, 3);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
@@ -95,7 +95,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AdminManagementLibrarySystem.Properties.Resources.magnifying_glass_icon_isolated_on_white_background_search_illustration_vector;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 29);
@@ -106,7 +106,7 @@
             // bookGrid
             // 
             this.bookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bookGrid.Location = new System.Drawing.Point(7, 118);
+            this.bookGrid.Location = new System.Drawing.Point(6, 118);
             this.bookGrid.Margin = new System.Windows.Forms.Padding(2);
             this.bookGrid.Name = "bookGrid";
             this.bookGrid.RowHeadersWidth = 72;
@@ -119,7 +119,7 @@
             // 
             this.btnAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddBook.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(83)))), ((int)(((byte)(114)))));
-            this.btnAddBook.Location = new System.Drawing.Point(432, 14);
+            this.btnAddBook.Location = new System.Drawing.Point(431, 14);
             this.btnAddBook.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(78, 30);
@@ -133,7 +133,7 @@
             this.btnSearch.BackColor = System.Drawing.Color.White;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(83)))), ((int)(((byte)(114)))));
-            this.btnSearch.Location = new System.Drawing.Point(520, 64);
+            this.btnSearch.Location = new System.Drawing.Point(519, 64);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(72, 30);
@@ -146,7 +146,7 @@
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(83)))), ((int)(((byte)(114)))));
-            this.btnRefresh.Location = new System.Drawing.Point(514, 14);
+            this.btnRefresh.Location = new System.Drawing.Point(513, 14);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(78, 30);
@@ -172,7 +172,7 @@
             this.paneEdit.Controls.Add(this.label3);
             this.paneEdit.Controls.Add(this.txtAuthor2);
             this.paneEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paneEdit.Location = new System.Drawing.Point(7, 446);
+            this.paneEdit.Location = new System.Drawing.Point(6, 446);
             this.paneEdit.Name = "paneEdit";
             this.paneEdit.Size = new System.Drawing.Size(585, 254);
             this.paneEdit.TabIndex = 12;
@@ -284,6 +284,7 @@
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label2
             // 

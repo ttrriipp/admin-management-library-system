@@ -53,6 +53,17 @@ namespace AdminManagementLibrarySystem
             da.Fill(ds);
             connect.Close();
         }
+
+        private void removedata()
+        {
+            connect.Open();
+            string selectque = "DELETE FROM `addbooks` WHERE book_id = '" + idrow + "'";
+            comm = new MySqlCommand(selectque, connect);
+            MySqlDataAdapter da = new MySqlDataAdapter(comm);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            connect.Close();
+        }
         private void btnAddBook_Click(object sender, EventArgs e)
         {
             FormAddBook addBookForm = new FormAddBook();
@@ -151,6 +162,20 @@ namespace AdminManagementLibrarySystem
             else
             {
                 MessageBox.Show("Book not updated!");
+            }
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want this book to be deleted?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                removedata();
+                view();
+                paneEdit.Visible = false;
+                MessageBox.Show("Book deleted successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Book not deleted!");
             }
         }
     }
