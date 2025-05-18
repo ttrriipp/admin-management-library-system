@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using AdminManagementLibrarySystem.Models;
+using MySql.Data.MySqlClient;
 
 namespace AdminManagementLibrarySystem
 {
@@ -56,5 +58,12 @@ namespace AdminManagementLibrarySystem
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void FormMainAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
