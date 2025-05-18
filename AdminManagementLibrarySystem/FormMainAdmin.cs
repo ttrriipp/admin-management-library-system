@@ -45,9 +45,11 @@ namespace AdminManagementLibrarySystem
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            FormLogin loginForm = new FormLogin();
-            loginForm.Show();
-            Hide();
+            if (MessageBox.Show("Are you sure you want to logout?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes){
+                FormLogin loginForm = new FormLogin();
+                loginForm.Show();
+                Hide();
+            }
         }
 
         private void FormMainAdmin_FormClosing(object sender, FormClosingEventArgs e)
