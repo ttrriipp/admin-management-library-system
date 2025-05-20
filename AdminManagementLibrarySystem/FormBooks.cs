@@ -26,7 +26,7 @@ namespace AdminManagementLibrarySystem
             try
             {
                 connect.Open();
-                string selectque = "SELECT * FROM addbooks";
+                string selectque = "SELECT * FROM books";
                 comm = new MySqlCommand(selectque, connect);
                 MySqlDataAdapter da = new MySqlDataAdapter(comm);
                 DataSet ds = new DataSet();
@@ -46,7 +46,7 @@ namespace AdminManagementLibrarySystem
         private void update()
         {
             connect.Open();
-            string selectque = "UPDATE `addbooks` SET `title`='"+this.txtTitle2.Text+"',`author`='"+this.txtAuthor2.Text+ "',`ISBN`='"+this.txtISBN2.Text+ "',`category`='"+this.category2.Text+ "',`quantity`='"+this.txtQuantity2.Text+"' where book_id = '"+idrow+"'";
+            string selectque = "UPDATE `books` SET `title`='"+this.txtTitle2.Text+"',`author`='"+this.txtAuthor2.Text+ "',`ISBN`='"+this.txtISBN2.Text+ "',`category`='"+this.category2.Text+ "',`quantity`='"+this.txtQuantity2.Text+"' where book_id = '"+idrow+"'";
             comm = new MySqlCommand(selectque, connect);
             MySqlDataAdapter da = new MySqlDataAdapter(comm);
             DataSet ds = new DataSet();
@@ -57,7 +57,7 @@ namespace AdminManagementLibrarySystem
         private void removedata()
         {
             connect.Open();
-            string selectque = "DELETE FROM `addbooks` WHERE book_id = '" + idrow + "'";
+            string selectque = "DELETE FROM `books` WHERE book_id = '" + idrow + "'";
             comm = new MySqlCommand(selectque, connect);
             MySqlDataAdapter da = new MySqlDataAdapter(comm);
             DataSet ds = new DataSet();
@@ -90,7 +90,7 @@ namespace AdminManagementLibrarySystem
             paneEdit.Visible = true;
             connect.Open();
 
-            string selectque = "SELECT * FROM addbooks where book_id ='"+selectedRow+"'";
+            string selectque = "SELECT * FROM books where book_id ='"+selectedRow+"'";
             comm = new MySqlCommand(selectque, connect);
             MySqlDataAdapter da = new MySqlDataAdapter(comm);
             DataSet ds = new DataSet();
@@ -125,12 +125,12 @@ namespace AdminManagementLibrarySystem
                 string query;
                 if (string.IsNullOrEmpty(searchValue))
                 {
-                    query = "SELECT * FROM addbooks";
+                    query = "SELECT * FROM books";
                     comm = new MySqlCommand(query, connect);
                 }
                 else
                 {
-                    query = "SELECT * FROM addbooks WHERE title LIKE @search OR author LIKE @search OR ISBN LIKE @search OR category LIKE @search";
+                    query = "SELECT * FROM books WHERE title LIKE @search OR author LIKE @search OR ISBN LIKE @search OR category LIKE @search";
                     comm = new MySqlCommand(query, connect);
                     comm.Parameters.AddWithValue("@search", "%" + searchValue + "%");
                 }
