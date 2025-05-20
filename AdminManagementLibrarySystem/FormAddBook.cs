@@ -36,7 +36,7 @@ namespace AdminManagementLibrarySystem
             try
             {
                 connect.Open();
-                string query = "INSERT INTO `addbooks`(`title`, `author`, `ISBN`, `category`, `quantity`) VALUES ('"+this.txtTitle.Text+ "', '"+this.txtAuthor.Text+ "', '"+this.txtISBN.Text+"', '" + this.category.Text + "', '" + this.txtQuantity.Text + "')";
+                string query = "INSERT INTO `books`(`title`, `author`, `ISBN`, `category`, `quantity`) VALUES ('"+this.txtTitle.Text+ "', '"+this.txtAuthor.Text+ "', '"+this.txtISBN.Text+"', '" + this.category.Text + "', '" + this.txtQuantity.Text + "')";
                 comm = new MySqlCommand(query, connect);
                 comm.ExecuteNonQuery();
                 MessageBox.Show("Book added successfully!");

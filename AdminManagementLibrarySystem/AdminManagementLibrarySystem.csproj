@@ -111,6 +111,12 @@
     <Compile Include="FormBooks.Designer.cs">
       <DependentUpon>FormBooks.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormIssueBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIssueBook.Designer.cs">
+      <DependentUpon>FormIssueBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBooks.resx">
       <DependentUpon>FormBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIssueBook.resx">
+      <DependentUpon>FormIssueBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
