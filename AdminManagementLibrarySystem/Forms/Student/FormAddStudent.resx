@@ -117,35 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="book-open-blank-variant-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book-open-blank-variant-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="magnifying-glass-icon-isolated-on-white-background-search-illustration-vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\magnifying-glass-icon-isolated-on-white-background-search-illustration-vector.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="shield-icon-security-symbol-safety-sign-vector-22537798" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shield-icon-security-symbol-safety-sign-vector-22537798.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="autorenew" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\autorenew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="school-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\school-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="e3bfc508-c7db-4e6a-98d1-9d0f848c1b60" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\e3bfc508-c7db-4e6a-98d1-9d0f848c1b60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="profile-icon-design-free-vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\profile-icon-design-free-vector.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="images1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="book-sync-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book-sync-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

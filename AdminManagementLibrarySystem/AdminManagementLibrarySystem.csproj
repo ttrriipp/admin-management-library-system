@@ -99,75 +99,116 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAddBook.cs">
+    <Compile Include="Forms\Book\FormEditBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddBook.Designer.cs">
+    <Compile Include="Forms\Book\FormEditBook.Designer.cs">
+      <DependentUpon>FormEditBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormConfirmReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormConfirmReturn.Designer.cs">
+      <DependentUpon>FormConfirmReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Student\FormEditStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Student\FormEditStudent.Designer.cs">
+      <DependentUpon>FormEditStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Student\FormAddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Student\FormAddStudent.Designer.cs">
+      <DependentUpon>FormAddStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormReturnBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormReturnBook.Designer.cs">
+      <DependentUpon>FormReturnBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Student\FormStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Student\FormStudents.Designer.cs">
+      <DependentUpon>FormStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Book\FormAddBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Book\FormAddBook.Designer.cs">
       <DependentUpon>FormAddBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBooks.cs">
+    <Compile Include="Forms\Book\FormBooks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBooks.Designer.cs">
+    <Compile Include="Forms\Book\FormBooks.Designer.cs">
       <DependentUpon>FormBooks.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormIssueBook.cs">
+    <Compile Include="Forms\FormIssueBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormIssueBook.Designer.cs">
+    <Compile Include="Forms\FormIssueBook.Designer.cs">
       <DependentUpon>FormIssueBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="Forms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="Forms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMainAdmin.cs">
+    <Compile Include="Forms\FormMainAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMainAdmin.Designer.cs">
+    <Compile Include="Forms\FormMainAdmin.Designer.cs">
       <DependentUpon>FormMainAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormManageUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormManageUsers.Designer.cs">
-      <DependentUpon>FormManageUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormRegister.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRegister.Designer.cs">
-      <DependentUpon>FormRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\BorrowedBook.cs" />
-    <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAddBook.resx">
+    <Compile Include="Classes\Table.cs" />
+    <EmbeddedResource Include="Forms\Book\FormEditBook.resx">
+      <DependentUpon>FormEditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormConfirmReturn.resx">
+      <DependentUpon>FormConfirmReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Student\FormEditStudent.resx">
+      <DependentUpon>FormEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Student\FormAddStudent.resx">
+      <DependentUpon>FormAddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormReturnBook.resx">
+      <DependentUpon>FormReturnBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Student\FormStudents.resx">
+      <DependentUpon>FormStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Book\FormAddBook.resx">
       <DependentUpon>FormAddBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormBooks.resx">
+    <EmbeddedResource Include="Forms\Book\FormBooks.resx">
       <DependentUpon>FormBooks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormIssueBook.resx">
+    <EmbeddedResource Include="Forms\FormIssueBook.resx">
       <DependentUpon>FormIssueBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMainAdmin.resx">
+    <EmbeddedResource Include="Forms\FormMainAdmin.resx">
       <DependentUpon>FormMainAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormManageUsers.resx">
-      <DependentUpon>FormManageUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRegister.resx">
-      <DependentUpon>FormRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -204,6 +245,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\magnifying-glass-icon-isolated-on-white-background-search-illustration-vector.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-open-blank-variant-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\autorenew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-sync-outline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

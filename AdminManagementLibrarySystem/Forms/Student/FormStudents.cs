@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,11 @@ using System.Windows.Forms;
 
 namespace AdminManagementLibrarySystem
 {
-    public partial class FormRegister : Form
+    public partial class FormStudents : Form
     {
-        public FormRegister()
+        public FormStudents()
         {
             InitializeComponent();
-        }
-
-        private void FormRegister_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -63,9 +63,59 @@ namespace AdminManagementLibrarySystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap autorenew {
+            get {
+                object obj = ResourceManager.GetObject("autorenew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap book_open_blank_variant_outline {
+            get {
+                object obj = ResourceManager.GetObject("book-open-blank-variant-outline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap book_sync_outline {
+            get {
+                object obj = ResourceManager.GetObject("book-sync-outline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap e3bfc508_c7db_4e6a_98d1_9d0f848c1b60 {
             get {
                 object obj = ResourceManager.GetObject("e3bfc508-c7db-4e6a-98d1-9d0f848c1b60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images {
+            get {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images1 {
+            get {
+                object obj = ResourceManager.GetObject("images1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +136,16 @@ namespace AdminManagementLibrarySystem.Properties {
         internal static System.Drawing.Bitmap profile_icon_design_free_vector {
             get {
                 object obj = ResourceManager.GetObject("profile-icon-design-free-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap school_outline {
+            get {
+                object obj = ResourceManager.GetObject("school-outline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

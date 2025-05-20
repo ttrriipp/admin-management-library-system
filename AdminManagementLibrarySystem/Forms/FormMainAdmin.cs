@@ -2,7 +2,6 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using AdminManagementLibrarySystem.Models;
 using MySql.Data.MySqlClient;
 
 namespace AdminManagementLibrarySystem
@@ -12,6 +11,7 @@ namespace AdminManagementLibrarySystem
         public FormMainAdmin()
         {
             InitializeComponent();
+            show(new FormDashboard());
         }
 
         void show(Form frm)
@@ -33,15 +33,12 @@ namespace AdminManagementLibrarySystem
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            show(new FormDashboard());
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnLoan_Click(object sender, EventArgs e)
-        {
+            show(new FormStudents());
 
         }
 
@@ -61,9 +58,18 @@ namespace AdminManagementLibrarySystem
 
         private void FormMainAdmin_Load(object sender, EventArgs e)
         {
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            show(new FormReturnBook());
 
         }
 
+        private void btnIssue_Click(object sender, EventArgs e)
+        {
+            show(new FormIssueBook());
 
+        }
     }
 }
