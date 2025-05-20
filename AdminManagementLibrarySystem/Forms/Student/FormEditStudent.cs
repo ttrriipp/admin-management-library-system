@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,66 +16,73 @@ namespace AdminManagementLibrarySystem
     {
         MySqlConnection connect = new MySqlConnection("server=localhost;user id=root;password=;database=librarysys");
         MySqlCommand comm;
-        public FormEditStudent()
+        private string id;
+        private string lname;
+        private string fname;
+        private string email;
+        private string dept;
+        private string course;
+        public FormEditStudent(String id, String lname, String fname, String email, String dept, String course)
         {
             InitializeComponent();
+            this.id = id;
+            this.lname = lname;
+            this.fname = fname;
+            this.email = email;
+            this.dept = dept;
+            this.course = course;
         }
-        private void addBook()
+        private void updateEdit()
         {
-            if (string.IsNullOrEmpty(this.txtTitle.Text) || string.IsNullOrEmpty(this.txtAuthor.Text) ||
-                string.IsNullOrEmpty(this.txtISBN.Text) || string.IsNullOrEmpty(this.category.Text) ||
-                string.IsNullOrEmpty(this.txtQuantity.Text))
+            connect.Open();
+            string selectque = "UPDATE `students` SET `last_name`='" + this.lname + "',`first_name`='" + this.fname + "',`email`='" + this.email + "',`department`='" + this.dept + "',`course`='" + this.course + "' WHERE `id` = '" + this.id + "'";
+            comm = new MySqlCommand(selectque, connect);
+            MySqlDataAdapter da = new MySqlDataAdapter(comm);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            connect.Close();
+        }
+        private void editdata()
+        {
+            if (MessageBox.Show("The data will be update. Confirm?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Please fill in all fields.");
-                return;
+                updateEdit();
+                MessageBox.Show("Student updated successfully!");
             }
-            if (!int.TryParse(this.txtQuantity.Text, out int quantity))
+            else
             {
-                MessageBox.Show("Please enter a valid number for quantity.");
-                return;
-            }
-            try
-            {
-                connect.Open();
-                string query = "INSERT INTO `books`(`title`, `author`, `ISBN`, `category`, `quantity`) VALUES ('"+this.txtTitle.Text+ "', '"+this.txtAuthor.Text+ "', '"+this.txtISBN.Text+"', '" + this.category.Text + "', '" + this.txtQuantity.Text + "')";
-                comm = new MySqlCommand(query, connect);
-                comm.ExecuteNonQuery();
-                MessageBox.Show("Book added successfully!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
-            finally
-            {
-                connect.Close();
+                MessageBox.Show("Student not updated!");
             }
         }
         private void clear()
         {
-            this.txtTitle.Clear();
-            this.txtAuthor.Clear();
-            this.txtISBN.Clear();
-            this.category.SelectedIndex = -1;
-            this.txtQuantity.Clear();   
-        }
-        private void FormAddBook_Load(object sender, EventArgs e)
-        {
-
+            this.txtLname.Clear();
+            this.txtFname.Clear();
+            this.txtEmail.Clear();
+            this.txtDept.Clear();
+            this.txtCourse.Clear();   
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Hide();
         }
 
-        private void btnAddBook_Click(object sender, EventArgs e)
-        {
-            addBook();
-        }
-
         private void btnClearFields_Click(object sender, EventArgs e)
         {
             clear();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            editdata();
+        }
+        private void FormEditStudent_Load(object sender, EventArgs e)
+        {
+            this.txtLname.Text = this.lname;
+            this.txtFname.Text = this.fname;
+            this.txtEmail.Text = this.email;
+            this.txtDept.Text = this.dept;
+            this.txtCourse.Text = this.course;
         }
     }
 }

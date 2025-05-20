@@ -26,7 +26,7 @@ namespace AdminManagementLibrarySystem
             {
                 Table.style(bookGrid);
                 connect.Open();
-                string selectque = "SELECT * FROM books";
+                string selectque = "SELECT * FROM books WHERE status = 'Active'";
                 comm = new MySqlCommand(selectque, connect);
                 MySqlDataAdapter da = new MySqlDataAdapter(comm);
                 DataSet ds = new DataSet();
@@ -49,11 +49,10 @@ namespace AdminManagementLibrarySystem
         {
             idrow = bookGrid.SelectedRows[0].Cells[0].Value.ToString();
             connect.Open();
-            string selectque = "DELETE FROM `books` WHERE id = '" + idrow + "'";
+            string selectque = "UPDATE `books` SET `status`='Inactive' WHERE id=@id";
             comm = new MySqlCommand(selectque, connect);
-            MySqlDataAdapter da = new MySqlDataAdapter(comm);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
+            comm.Parameters.AddWithValue("@id", idrow);
+            comm.ExecuteNonQuery();
             connect.Close();
         }
         private void btnAddBook_Click(object sender, EventArgs e)
@@ -121,7 +120,7 @@ namespace AdminManagementLibrarySystem
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want this book to be deleted?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to set the status of this book to be Inactive?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 removedata();
                 view();

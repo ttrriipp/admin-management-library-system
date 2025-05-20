@@ -21,25 +21,20 @@ namespace AdminManagementLibrarySystem
         }
         private void addBook()
         {
-            //if (string.IsNullOrEmpty(this.txtTitle.Text) || string.IsNullOrEmpty(this.txtAuthor.Text) ||
-                //string.IsNullOrEmpty(this.txtISBN.Text) || string.IsNullOrEmpty(this.category.Text) ||
-                //string.IsNullOrEmpty(this.txtQuantity.Text))
+            if (string.IsNullOrEmpty(this.txtLname.Text) || string.IsNullOrEmpty(this.txtFname.Text) ||
+                string.IsNullOrEmpty(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtDept.Text) ||
+                string.IsNullOrEmpty(this.txtCourse.Text))
             {
                 MessageBox.Show("Please fill in all fields.");
-                return;
-            }
-            //if (!int.TryParse(this.txtQuantity.Text, out int quantity))
-            {
-                MessageBox.Show("Please enter a valid number for quantity.");
                 return;
             }
             try
             {
                 connect.Open();
-                //string query = "INSERT INTO `books`(`title`, `author`, `ISBN`, `category`, `quantity`) VALUES ('"+this.txtTitle.Text+ "', '"+this.txtAuthor.Text+ "', '"+this.txtISBN.Text+"', '" + this.category.Text + "', '" + this.txtQuantity.Text + "')";
-                //comm = new MySqlCommand(query, connect);
+                string query = "INSERT INTO `students`(`last_name`, `first_name`, `email`, `department`, `course`) VALUES ('"+this.txtLname.Text+"','"+this.txtFname.Text+"','"+this.txtEmail.Text+"','"+this.txtDept.Text+"','"+this.txtCourse.Text+"')";
+                comm = new MySqlCommand(query, connect);
                 comm.ExecuteNonQuery();
-                MessageBox.Show("Book added successfully!");
+                MessageBox.Show("Student added successfully!");
             }
             catch (Exception ex)
             {
@@ -52,15 +47,11 @@ namespace AdminManagementLibrarySystem
         }
         private void clear()
         {
-            this.txtTitle.Clear();
-            this.txtAuthor.Clear();
-            this.txtISBN.Clear();
-            this.category.SelectedIndex = -1;
-            //this.txtQuantity.Clear();   
-        }
-        private void FormAddBook_Load(object sender, EventArgs e)
-        {
-
+            this.txtLname.Clear();
+            this.txtFname.Clear();
+            this.txtEmail.Clear();
+            this.txtDept.Clear();
+            this.txtCourse.Clear();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
