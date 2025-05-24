@@ -27,7 +27,6 @@ namespace AdminManagementLibrarySystem
         }
         private void updateEdit()
         {
-
             try
             {
                 connect.Open();

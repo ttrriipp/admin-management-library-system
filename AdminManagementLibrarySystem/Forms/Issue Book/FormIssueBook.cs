@@ -182,7 +182,7 @@ namespace AdminManagementLibrarySystem
             {
                 case "books":
                     query = "SELECT id AS ID, title AS Title, author AS Author, ISBN, category AS Category, quantity AS Quantity" +
-                        "FROM books WHERE status = 'active' AND quantity > 0 AND (title LIKE @input OR id LIKE @input OR ISBN LIKE @input)";
+                        " FROM books WHERE status = 'active' AND quantity > 0 AND (title LIKE @input OR id LIKE @input OR ISBN LIKE @input)";
                     cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@input", $"%{input}%");
                     break;
