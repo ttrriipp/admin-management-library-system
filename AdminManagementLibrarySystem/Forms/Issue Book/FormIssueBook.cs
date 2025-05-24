@@ -167,7 +167,7 @@ namespace AdminManagementLibrarySystem
             string course = txtCourse.Text;
             string[] student = { studentId, fullName, email, department, course };
 
-            if (InputsAreComplete(dateIssue, dateDue, book, student))
+            if (InputsAreComplete(dateIssue, dateDue, book, student) && ValidDates(dtpIssue.Value, dtpDue.Value))
             {
                 FormConfirmIssue FCI = new FormConfirmIssue(book, student, dateIssue, dateDue, notes);
                 FCI.Show();
@@ -188,8 +188,8 @@ namespace AdminManagementLibrarySystem
                     cmd.Parameters.AddWithValue("@input", $"%{input}%");
                     break;
                 case "students":
-                    query = "SELECT id, last_name, first_name, email, department, course FROM students WHERE status = 'active' AND last_name " +
-                        "(LIKE @input OR first_name LIKE @input OR id LIKE @input OR email LIKE @input)";
+                    query = "SELECT id, last_name, first_name, email, department, course FROM students WHERE status = 'active' AND (last_name " +
+                        "LIKE @input OR first_name LIKE @input OR id LIKE @input OR email LIKE @input)";
                     cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@input", $"%{input}%");
                     break;
@@ -210,6 +210,17 @@ namespace AdminManagementLibrarySystem
                 searchTimer.Stop();
             };
             searchTimer.Start();
+        }
+
+        private bool ValidDates(DateTime dateIssue, DateTime dateDue)
+        {
+            if (dateDue < dateIssue)
+            {
+                MessageBox.Show("Due Date must not be earlier than Issue Date!", "Invalid Dates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -5,13 +5,13 @@ using MySql.Data.MySqlClient;
 
 namespace AdminManagementLibrarySystem
 {
-    public partial class FormViewLoan: Form
+    public partial class FormView: Form
     {
         MySqlConnection conn;
         MySqlCommand cmd;
         MySqlDataReader reader;
         private string loanId;
-        public FormViewLoan(string loanId)
+        public FormView(string loanId)
         {
             InitializeComponent();
             try
@@ -49,14 +49,16 @@ namespace AdminManagementLibrarySystem
             string adminId = reader["issued_by"].ToString();
             this.lblIssueDate.Text += reader["issue_date"].ToString().Remove(10);
             this.lblDueDate.Text += reader["due_date"].ToString().Remove(10);
-            this.lblReturnDate.Text += reader["return_date"].ToString();
 
-            if (this.lblReturnDate.Text.Length > 12)
+            if (string.IsNullOrEmpty(reader["return_date"].ToString()))
             {
-                this.lblReturnDate.Text.Remove(10);
+                this.lblReturnDate.Text += "N/A";
+            } else
+            {
+                this.lblReturnDate.Text += reader["return_date"].ToString().Remove(10);
             }
-            this.lblStatus.Text += reader["status"].ToString();
-            this.lblFineAmount.Text += reader["fine_amount"].ToString();
+            this.lblStatus.Text += GetLoanStatus(reader["status"].ToString(), (DateTime)reader["due_date"]);
+            this.lblFineAmount.Text += CalculateFineAmount(reader["fine_amount"].ToString(), (DateTime)reader["due_date"]);
             this.lblNotes.Text += reader["notes"].ToString();
 
             MySqlDataReader bookReader = GetData(tables[0], bookId);
@@ -101,5 +103,27 @@ namespace AdminManagementLibrarySystem
         {
             this.Hide();
         }
+
+        private string GetLoanStatus(string status, DateTime dueDate)
+        {
+            if (status == "Active" && DateTime.Now > dueDate)
+                return "Overdue";
+
+            return status;
+        }
+
+        // Fine rate is 100
+        private string CalculateFineAmount(string initialFineAmount, DateTime dueDate)
+        {
+            bool fineAmountIsSet = Double.TryParse(initialFineAmount, out double result);
+            if (fineAmountIsSet && result != 0.00)
+            {
+                return initialFineAmount;
+            }
+            double daysDifference = (int)(DateTime.Now - dueDate).TotalDays;
+            string calculatedFineAmount = (daysDifference * 100).ToString();
+            return calculatedFineAmount;
+        }
+
     }
 }

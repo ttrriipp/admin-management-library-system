@@ -5,13 +5,13 @@ using MySql.Data.MySqlClient;
 
 namespace AdminManagementLibrarySystem
 {
-    public partial class FormReturn: Form
+    public partial class FormEdit: Form
     {
         MySqlConnection conn;
         MySqlCommand cmd;
         MySqlDataReader reader;
         private string loanId;
-        public FormReturn(string loanId)
+        public FormEdit(string loanId)
         {
             InitializeComponent();
             try
@@ -59,8 +59,8 @@ namespace AdminManagementLibrarySystem
                 this.dtpReturnDate.Value = returnDate;
             }
 
-            this.txtFineAmount.Text = reader["fine_amount"].ToString();
-            this.txtStatus.Text = reader["status"].ToString();
+            this.txtFineAmount.Text = CalculateFineAmount(reader["fine_amount"].ToString(), dueDate);
+            this.cmbStatus.Text = reader["status"].ToString();
 
             MySqlDataReader bookReader = GetData(tables[0], bookId);
 
@@ -101,6 +101,87 @@ namespace AdminManagementLibrarySystem
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Hide();
+        }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbStatus.SelectedItem.ToString() == "Returned")
+            {
+                dtpReturnDate.Enabled = true;
+            }
+            else
+                dtpReturnDate.Enabled = false;
+
+        }
+
+        // Fine rate is 100
+        private string CalculateFineAmount(string initialFineAmount, DateTime dueDate)
+        {
+            bool fineAmountIsSet = Double.TryParse(initialFineAmount, out double result);
+            if (fineAmountIsSet && result != 0.00)
+            {
+                return initialFineAmount;
+            }
+            double daysDifference = (int)(DateTime.Now - dueDate).TotalDays;
+            string calculatedFineAmount = (daysDifference * 100.00).ToString();
+            return calculatedFineAmount;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (dtpDueDate.Value < dtpIssueDate.Value)
+            {
+                MessageBox.Show("Due Date must not be earlier than Issue Date!", "Invalid Dates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            bool FineAmountInputIsValid = double.TryParse(txtFineAmount.Text, out double fineAmount);
+            if (!FineAmountInputIsValid)
+            {
+                MessageBox.Show("Fine amount must be a valid number!", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            try
+            {
+            conn = new MySqlConnection(Config.connString);
+            conn.Open();
+            string query;
+            query = "UPDATE loans SET issue_date = @issueDate, due_date = @dueDate, return_date = @returnDate, status = @status, " +
+                "fine_amount = @fineAmount, notes = @notes WHERE id = @id";
+
+            cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", this.loanId);
+            cmd.Parameters.AddWithValue("@issueDate", dtpIssueDate.Text);
+            cmd.Parameters.AddWithValue("@dueDate", dtpDueDate.Text);
+            if (dtpReturnDate.Enabled)
+            {
+                cmd.Parameters.AddWithValue("@returnDate", dtpReturnDate.Text);
+                if (dtpReturnDate.Value < dtpIssueDate.Value || dtpReturnDate.Value < dtpDueDate.Value)
+                    {
+                        MessageBox.Show("Return Date must not be earlier than Issue Date or Return Date!", "Invalid Dates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+	    else
+            {
+                cmd.Parameters.AddWithValue("@returnDate", null);
+            }
+            cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
+            cmd.Parameters.AddWithValue("@fineAmount", txtFineAmount.Text);
+            cmd.Parameters.AddWithValue("@notes", txtNotes.Text);
+	    if (cmd.ExecuteNonQuery() > 0)
+	    {
+	        MessageBox.Show("Updated Succesfully!");
+	    }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+                return;
+            }
             this.Hide();
         }
     }

@@ -13,7 +13,7 @@ namespace AdminManagementLibrarySystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMainAdmin());
+            Application.Run(new FormLogin());
         }
     }
 }

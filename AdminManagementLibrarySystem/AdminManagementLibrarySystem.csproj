@@ -100,29 +100,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
-    <Compile Include="FormSelectData.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSelectData.Designer.cs">
-      <DependentUpon>FormSelectData.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Book\FormEditBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Book\FormEditBook.Designer.cs">
       <DependentUpon>FormEditBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Book Loans\FormReturn.cs">
+    <Compile Include="Forms\Book Loans\FormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Book Loans\FormReturn.Designer.cs">
-      <DependentUpon>FormReturn.cs</DependentUpon>
+    <Compile Include="Forms\Book Loans\FormEdit.Designer.cs">
+      <DependentUpon>FormEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Book Loans\FormViewLoan.cs">
+    <Compile Include="Forms\Book Loans\FormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Book Loans\FormViewLoan.Designer.cs">
-      <DependentUpon>FormViewLoan.cs</DependentUpon>
+    <Compile Include="Forms\Book Loans\FormView.Designer.cs">
+      <DependentUpon>FormView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Issue Book\FormConfirmIssue.cs">
       <SubType>Form</SubType>
@@ -193,17 +187,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Table.cs" />
-    <EmbeddedResource Include="FormSelectData.resx">
-      <DependentUpon>FormSelectData.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Book\FormEditBook.resx">
       <DependentUpon>FormEditBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Book Loans\FormReturn.resx">
-      <DependentUpon>FormReturn.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Book Loans\FormEdit.resx">
+      <DependentUpon>FormEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Book Loans\FormViewLoan.resx">
-      <DependentUpon>FormViewLoan.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Book Loans\FormView.resx">
+      <DependentUpon>FormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Issue Book\FormConfirmIssue.resx">
       <DependentUpon>FormConfirmIssue.cs</DependentUpon>

@@ -60,17 +60,12 @@ namespace AdminManagementLibrarySystem
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to set the status of this student to Inactive?","Success", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to archive this student?","Archive Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 setStatus();
-                MessageBox.Show("Student deactivated successfully!");
+                MessageBox.Show("Student archived successfully!");
                 studView();
             }
-            else
-            {
-                MessageBox.Show("Student deactivation cancelled.");
-            }
-           
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

@@ -7,7 +7,7 @@ namespace AdminManagementLibrarySystem
 {
     public partial class FormBooks : Form
     {
-        MySqlConnection connect = new MySqlConnection("server=localhost;user id=root;password=;database=librarysys");
+        MySqlConnection connect = new MySqlConnection(Config.connString);
         MySqlCommand comm;
         string idrow;
         public FormBooks()
@@ -115,15 +115,11 @@ namespace AdminManagementLibrarySystem
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to set the status of this book to be Inactive?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to archive this book?", "Archive Book", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 removedata();
                 view();
-                MessageBox.Show("Book deleted successfully!");
-            }
-            else
-            {
-                MessageBox.Show("Book not deleted!");
+                MessageBox.Show("Book archived successfully!");
             }
         }
     }

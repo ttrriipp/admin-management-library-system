@@ -1,6 +1,6 @@
 ﻿namespace AdminManagementLibrarySystem
 {
-    partial class FormViewLoan
+    partial class FormView
     {
         /// <summary>
         /// Required designer variable.
@@ -323,7 +323,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
-            this.label10.Location = new System.Drawing.Point(25, 528);
+            this.label10.Location = new System.Drawing.Point(18, 544);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 29);
             this.label10.TabIndex = 1;

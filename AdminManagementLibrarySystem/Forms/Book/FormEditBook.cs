@@ -7,7 +7,7 @@ namespace AdminManagementLibrarySystem
 {
     public partial class FormEditBook : Form
     {
-        MySqlConnection connect = new MySqlConnection("server=localhost;user id=root;password=;database=librarysys");
+        MySqlConnection connect = new MySqlConnection(Config.connString);
         MySqlCommand comm;
         private string id;
         private string title;

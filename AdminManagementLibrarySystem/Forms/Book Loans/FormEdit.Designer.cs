@@ -1,6 +1,6 @@
 ﻿namespace AdminManagementLibrarySystem
 {
-    partial class FormReturn
+    partial class FormEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -42,15 +42,15 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.dtpReturnDate = new System.Windows.Forms.DateTimePicker();
             this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.dtpIssueDate = new System.Windows.Forms.DateTimePicker();
             this.txtFineAmount = new System.Windows.Forms.TextBox();
             this.txtIssuedBy = new System.Windows.Forms.TextBox();
-            this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.lblIssuedBy = new System.Windows.Forms.Label();
             this.lblFineAmount = new System.Windows.Forms.Label();
@@ -223,18 +223,19 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "Student Details";
             // 
-            // btnReturn
+            // btnSave
             // 
-            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Location = new System.Drawing.Point(860, 839);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(193, 56);
-            this.btnReturn.TabIndex = 11;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(860, 839);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(193, 56);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label1
             // 
@@ -243,19 +244,19 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
             this.label1.Location = new System.Drawing.Point(7, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(303, 55);
+            this.label1.Size = new System.Drawing.Size(236, 55);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Return Book";
+            this.label1.Text = "Edit Loan";
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cmbStatus);
             this.panel1.Controls.Add(this.dtpReturnDate);
             this.panel1.Controls.Add(this.dtpDueDate);
             this.panel1.Controls.Add(this.dtpIssueDate);
             this.panel1.Controls.Add(this.txtFineAmount);
             this.panel1.Controls.Add(this.txtIssuedBy);
-            this.panel1.Controls.Add(this.txtStatus);
             this.panel1.Controls.Add(this.txtNotes);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lblIssuedBy);
@@ -272,6 +273,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1036, 737);
             this.panel1.TabIndex = 15;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatus.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "Active",
+            "Returned",
+            "Lost"});
+            this.cmbStatus.Location = new System.Drawing.Point(718, 393);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(298, 37);
+            this.cmbStatus.TabIndex = 18;
+            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // dtpReturnDate
             // 
@@ -316,19 +333,12 @@
             // 
             // txtIssuedBy
             // 
+            this.txtIssuedBy.Enabled = false;
             this.txtIssuedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIssuedBy.Location = new System.Drawing.Point(718, 449);
             this.txtIssuedBy.Name = "txtIssuedBy";
             this.txtIssuedBy.Size = new System.Drawing.Size(300, 34);
             this.txtIssuedBy.TabIndex = 16;
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatus.Location = new System.Drawing.Point(718, 398);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(300, 34);
-            this.txtStatus.TabIndex = 16;
             // 
             // txtNotes
             // 
@@ -430,7 +440,7 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // FormReturn
+            // FormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -438,10 +448,10 @@
             this.ClientSize = new System.Drawing.Size(1065, 927);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormReturn";
+            this.Name = "FormEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormConfirmIssue_Load);
             this.panel2.ResumeLayout(false);
@@ -466,7 +476,7 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblDepartment;
         private System.Windows.Forms.Label lblCourse;
@@ -483,10 +493,10 @@
         private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.TextBox txtFineAmount;
         private System.Windows.Forms.TextBox txtIssuedBy;
-        private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DateTimePicker dtpIssueDate;
         private System.Windows.Forms.DateTimePicker dtpReturnDate;
         private System.Windows.Forms.DateTimePicker dtpDueDate;
+        private System.Windows.Forms.ComboBox cmbStatus;
     }
 }
