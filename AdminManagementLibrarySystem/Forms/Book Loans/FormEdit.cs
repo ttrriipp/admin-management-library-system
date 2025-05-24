@@ -142,47 +142,53 @@ namespace AdminManagementLibrarySystem
                 MessageBox.Show("Fine amount must be a valid number!", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            try
-            {
-            conn = new MySqlConnection(Config.connString);
-            conn.Open();
-            string query;
-            query = "UPDATE loans SET issue_date = @issueDate, due_date = @dueDate, return_date = @returnDate, status = @status, " +
-                "fine_amount = @fineAmount, notes = @notes WHERE id = @id";
 
-            cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@id", this.loanId);
-            cmd.Parameters.AddWithValue("@issueDate", dtpIssueDate.Text);
-            cmd.Parameters.AddWithValue("@dueDate", dtpDueDate.Text);
-            if (dtpReturnDate.Enabled)
+
+            if (MessageBox.Show("The selected loan will be updated.", "Confirm Edit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                cmd.Parameters.AddWithValue("@returnDate", dtpReturnDate.Text);
-                if (dtpReturnDate.Value < dtpIssueDate.Value || dtpReturnDate.Value < dtpDueDate.Value)
+                try
+                {
+                    conn = new MySqlConnection(Config.connString);
+                    conn.Open();
+                    string query;
+                    query = "UPDATE loans SET issue_date = @issueDate, due_date = @dueDate, return_date = @returnDate, status = @status, " +
+                        "fine_amount = @fineAmount, notes = @notes WHERE id = @id";
+
+                    cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", this.loanId);
+                    cmd.Parameters.AddWithValue("@issueDate", dtpIssueDate.Text);
+                    cmd.Parameters.AddWithValue("@dueDate", dtpDueDate.Text);
+                    if (dtpReturnDate.Enabled)
                     {
-                        MessageBox.Show("Return Date must not be earlier than Issue Date or Return Date!", "Invalid Dates", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
+                        cmd.Parameters.AddWithValue("@returnDate", dtpReturnDate.Text);
+                        if (dtpReturnDate.Value < dtpIssueDate.Value || dtpReturnDate.Value < dtpDueDate.Value)
+                        {
+                            MessageBox.Show("Return Date must not be earlier than Issue Date or Return Date!", "Invalid Dates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                     }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@returnDate", null);
+                    }
+                    cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
+                    cmd.Parameters.AddWithValue("@fineAmount", txtFineAmount.Text);
+                    cmd.Parameters.AddWithValue("@notes", txtNotes.Text);
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Updated Succesfully!");
+                    }
+
                 }
-	    else
-            {
-                cmd.Parameters.AddWithValue("@returnDate", null);
-            }
-            cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
-            cmd.Parameters.AddWithValue("@fineAmount", txtFineAmount.Text);
-            cmd.Parameters.AddWithValue("@notes", txtNotes.Text);
-	    if (cmd.ExecuteNonQuery() > 0)
-	    {
-	        MessageBox.Show("Updated Succesfully!");
-	    }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    conn.Close();
+                    return;
+                }
+                this.Hide();
 
             }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                conn.Close();
-                return;
-            }
-            this.Hide();
         }
     }
 }
