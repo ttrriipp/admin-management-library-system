@@ -27,13 +27,28 @@ namespace AdminManagementLibrarySystem
         }
         private void updateEdit()
         {
-            connect.Open();
-            string selectque = "UPDATE `students` SET `last_name`='" + this.lname + "',`first_name`='" + this.fname + "',`email`='" + this.email + "',`department`='" + this.dept + "',`course`='" + this.course + "' WHERE `id` = '" + this.id + "'";
-            comm = new MySqlCommand(selectque, connect);
-            MySqlDataAdapter da = new MySqlDataAdapter(comm);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            connect.Close();
+
+            try
+            {
+                connect.Open();
+                string selectque = "UPDATE `students` SET `last_name`=@lastName, `first_name`=@firstName, `Email`=@email, `department`=@department, `course`=@course WHERE id=@id";
+                comm = new MySqlCommand(selectque, connect);
+                comm.Parameters.AddWithValue("@lastName", this.txtLname.Text);
+                comm.Parameters.AddWithValue("@firstName", this.txtFname.Text);
+                comm.Parameters.AddWithValue("@email", this.txtEmail.Text);
+                comm.Parameters.AddWithValue("@department", this.txtDept.Text);
+                comm.Parameters.AddWithValue("@course", this.txtCourse.Text);
+                comm.Parameters.AddWithValue("@id", this.id);
+                comm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating book: " + ex.Message);
+            }
+            finally
+            {
+                connect.Close();
+            }
         }
         private void editdata()
         {
