@@ -51,23 +51,38 @@ namespace AdminManagementLibrarySystem
             {
                 update();
                 MessageBox.Show("Book updated successfully!");
+
             }
             else
             {
                 MessageBox.Show("Book not updated!");
             }
         }
-
         private void update()
         {
-            connect.Open();
-            string selectque = "UPDATE `books` SET `title`='" + this.title + "',`author`='" + this.author + "',`ISBN`='" + this.ISBN + "',`category`='" + this.category + "',`quantity`='" + this.copies + "' where id = '" + this.id + "'";
-            comm = new MySqlCommand(selectque, connect);
-            MySqlDataAdapter da = new MySqlDataAdapter(comm);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            connect.Close();
+            try
+            {
+                connect.Open();
+                string selectque = "UPDATE `books` SET `title`=@title, `author`=@author, `ISBN`=@isbn, `category`=@category, `quantity`=@quantity WHERE id=@id";
+                comm = new MySqlCommand(selectque, connect);
+                comm.Parameters.AddWithValue("@title", this.txtTitle.Text);
+                comm.Parameters.AddWithValue("@author", this.txtAuthor.Text);
+                comm.Parameters.AddWithValue("@isbn", this.txtISBN.Text);
+                comm.Parameters.AddWithValue("@category", this.valCategory.Text);
+                comm.Parameters.AddWithValue("@quantity", this.txtQuantity.Text);
+                comm.Parameters.AddWithValue("@id", this.id);
+                comm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating book: " + ex.Message);
+            }
+            finally
+            {
+                connect.Close();
+            }
         }
+
 
         private void FormEditBook_Load(object sender, EventArgs e)
         {
