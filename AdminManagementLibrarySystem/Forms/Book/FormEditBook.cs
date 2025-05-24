@@ -15,6 +15,7 @@ namespace AdminManagementLibrarySystem
         private string ISBN;
         private string category;
         private string copies;
+
         public FormEditBook(String id, String title, String author, String ISBN, String category, String copies)
         {
             InitializeComponent();

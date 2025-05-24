@@ -1,19 +1,13 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdminManagementLibrarySystem
 {
     public partial class FormStudents : Form
     {
-        MySqlConnection connect = new MySqlConnection("server=localhost;user id=root;password=;database=librarysys");
+        MySqlConnection connect = new MySqlConnection(Config.connString);
         MySqlCommand comm;
         string idrow;
         public FormStudents()
@@ -26,7 +20,7 @@ namespace AdminManagementLibrarySystem
             try
             {
                 connect.Open();
-                string selectque = "SELECT * FROM `students` WHERE `status`='Active'";
+                string selectque = "SELECT id AS ID, last_name AS 'Last Name', first_name AS 'First Name', email AS Email, department AS Department, course AS Course FROM `students` WHERE `status`='Active'";
                 comm = new MySqlCommand(selectque, connect);
                 MySqlDataAdapter da = new MySqlDataAdapter(comm);
                 DataSet ds = new DataSet();
@@ -93,6 +87,43 @@ namespace AdminManagementLibrarySystem
             String course = dgvStudents.SelectedRows[0].Cells[5].Value.ToString();
             FormEditStudent FEB = new FormEditStudent(id, lname, fname, email, department, course);
             FEB.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchValue = txtSearch.Text.Trim();
+            try
+            {
+                connect.Open();
+                string query;
+                if (string.IsNullOrEmpty(searchValue))
+                {
+                    query = "SELECT id AS ID, last_name AS 'Last Name', first_name AS 'First Name', email AS Email, department AS Department, course AS Course FROM `students` WHERE `status`='Active'";
+                    comm = new MySqlCommand(query, connect);
+                }
+                else
+                {
+                    query = "SELECT id AS ID, last_name AS 'Last Name', first_name AS 'First Name', email AS Email, department AS Department, course AS Course FROM `students` WHERE `status`='Active' " +
+                        "AND (id = @id OR last_name LIKE @search OR first_name LIKE @search OR email LIKE @search OR department LIKE @search OR course LIKE @search) ";
+                    comm = new MySqlCommand(query, connect);
+                    comm.Parameters.AddWithValue("id", searchValue);
+                    comm.Parameters.AddWithValue("@search", "%" + searchValue + "%");
+                }
+                MySqlDataAdapter da = new MySqlDataAdapter(comm);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                dgvStudents.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while searching: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connect.Close();
+            }
+            
         }
     }
 }

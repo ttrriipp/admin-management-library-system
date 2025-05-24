@@ -1,12 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdminManagementLibrarySystem
@@ -26,7 +20,7 @@ namespace AdminManagementLibrarySystem
             {
                 Table.style(bookGrid);
                 connect.Open();
-                string selectque = "SELECT * FROM books WHERE status = 'Active'";
+                string selectque = "SELECT id as ID, title as Title, author AS Author, ISBN, category AS Category, quantity AS Quantity FROM books WHERE status = 'Active'";
                 comm = new MySqlCommand(selectque, connect);
                 MySqlDataAdapter da = new MySqlDataAdapter(comm);
                 DataSet ds = new DataSet();
@@ -81,13 +75,14 @@ namespace AdminManagementLibrarySystem
                 string query;
                 if (string.IsNullOrEmpty(searchValue))
                 {
-                    query = "SELECT * FROM books";
+                    query = "SELECT id as ID, title as Title, author AS Author, ISBN, category AS Category, quantity AS Quantity FROM books WHERE status = 'Active'";
                     comm = new MySqlCommand(query, connect);
                 }
                 else
                 {
-                    query = "SELECT * FROM books WHERE title LIKE @search OR author LIKE @search OR ISBN LIKE @search OR category LIKE @search";
+                    query = "SELECT id as ID, title as Title, author AS Author, ISBN, category AS Category, quantity AS Quantity FROM books WHERE status = 'Active' AND (id = @id OR title LIKE @search OR author LIKE @search OR ISBN LIKE @search OR category LIKE @search) ";
                     comm = new MySqlCommand(query, connect);
+                    comm.Parameters.AddWithValue("id", searchValue);
                     comm.Parameters.AddWithValue("@search", "%" + searchValue + "%");
                 }
                 MySqlDataAdapter da = new MySqlDataAdapter(comm);
@@ -108,12 +103,12 @@ namespace AdminManagementLibrarySystem
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            String id = bookGrid.SelectedRows[0].Cells[0].Value.ToString();
-            String title = bookGrid.SelectedRows[0].Cells[1].Value.ToString();
-            String author = bookGrid.SelectedRows[0].Cells[2].Value.ToString();
-            String ISBN = bookGrid.SelectedRows[0].Cells[3].Value.ToString();
-            String category = bookGrid.SelectedRows[0].Cells[4].Value.ToString();
-            String quantity = bookGrid.SelectedRows[0].Cells[5].Value.ToString();
+            string id = bookGrid.SelectedRows[0].Cells[0].Value.ToString();
+            string title = bookGrid.SelectedRows[0].Cells[1].Value.ToString();
+            string author = bookGrid.SelectedRows[0].Cells[2].Value.ToString();
+            string ISBN = bookGrid.SelectedRows[0].Cells[3].Value.ToString();
+            string category = bookGrid.SelectedRows[0].Cells[4].Value.ToString();
+            string quantity = bookGrid.SelectedRows[0].Cells[5].Value.ToString();
             FormEditBook FEB = new FormEditBook(id, title, author, ISBN, category, quantity);
             FEB.Show();
         }

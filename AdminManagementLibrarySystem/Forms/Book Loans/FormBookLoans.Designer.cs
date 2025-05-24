@@ -1,6 +1,6 @@
 ﻿namespace AdminManagementLibrarySystem
 {
-    partial class FormReturnBook
+    partial class FormBookLoans
     {
         /// <summary>
         /// Required designer variable.
@@ -32,13 +32,14 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bookGrid = new System.Windows.Forms.DataGridView();
+            this.dgvLoans = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,9 +51,9 @@
             this.label1.Location = new System.Drawing.Point(13, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(303, 55);
+            this.label1.Size = new System.Drawing.Size(289, 55);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Return Book";
+            this.label1.Text = "Book Loans";
             // 
             // txtSearch
             // 
@@ -88,16 +89,17 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // bookGrid
+            // dgvLoans
             // 
-            this.bookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bookGrid.Location = new System.Drawing.Point(23, 226);
-            this.bookGrid.Margin = new System.Windows.Forms.Padding(4);
-            this.bookGrid.Name = "bookGrid";
-            this.bookGrid.RowHeadersWidth = 72;
-            this.bookGrid.RowTemplate.Height = 31;
-            this.bookGrid.Size = new System.Drawing.Size(1164, 544);
-            this.bookGrid.TabIndex = 4;
+            this.dgvLoans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLoans.Location = new System.Drawing.Point(23, 226);
+            this.dgvLoans.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvLoans.Name = "dgvLoans";
+            this.dgvLoans.RowHeadersWidth = 72;
+            this.dgvLoans.RowTemplate.Height = 31;
+            this.dgvLoans.Size = new System.Drawing.Size(1164, 544);
+            this.dgvLoans.TabIndex = 4;
+            this.dgvLoans.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoans_CellClick);
             // 
             // btnSearch
             // 
@@ -129,15 +131,30 @@
             this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(251)))), ((int)(((byte)(232)))));
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(83)))), ((int)(((byte)(114)))));
-            this.btnReturn.Location = new System.Drawing.Point(995, 778);
+            this.btnReturn.Location = new System.Drawing.Point(1044, 778);
             this.btnReturn.Margin = new System.Windows.Forms.Padding(4);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(143, 55);
             this.btnReturn.TabIndex = 10;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // FormReturnBook
+            // btnView
+            // 
+            this.btnView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(251)))), ((int)(((byte)(232)))));
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(83)))), ((int)(((byte)(114)))));
+            this.btnView.Location = new System.Drawing.Point(893, 778);
+            this.btnView.Margin = new System.Windows.Forms.Padding(4);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(143, 55);
+            this.btnView.TabIndex = 10;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = false;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // FormBookLoans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,18 +163,20 @@
             this.ClientSize = new System.Drawing.Size(1200, 900);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.bookGrid);
+            this.Controls.Add(this.dgvLoans);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormReturnBook";
-            this.Text = "FormReturnBook";
+            this.Name = "FormBookLoans";
+            this.Text = "FormBookLoans";
+            this.Load += new System.EventHandler(this.FormBookLoans_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,9 +188,10 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView bookGrid;
+        private System.Windows.Forms.DataGridView dgvLoans;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnView;
     }
 }

@@ -36,16 +36,16 @@
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblTotalStudents = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblBooksIssued = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnRecentBooks = new System.Windows.Forms.Button();
+            this.btnRecentIssues = new System.Windows.Forms.Button();
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -53,7 +53,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -121,7 +121,7 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.lblTotalStudents);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(423, 159);
             this.panel2.Name = "panel2";
@@ -138,16 +138,16 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
-            // label5
+            // lblTotalStudents
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
-            this.label5.Location = new System.Drawing.Point(16, 66);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 55);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "000";
+            this.lblTotalStudents.AutoSize = true;
+            this.lblTotalStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalStudents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
+            this.lblTotalStudents.Location = new System.Drawing.Point(16, 66);
+            this.lblTotalStudents.Name = "lblTotalStudents";
+            this.lblTotalStudents.Size = new System.Drawing.Size(108, 55);
+            this.lblTotalStudents.TabIndex = 1;
+            this.lblTotalStudents.Text = "000";
             // 
             // label6
             // 
@@ -164,7 +164,7 @@
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.lblBooksIssued);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Location = new System.Drawing.Point(819, 159);
             this.panel3.Name = "panel3";
@@ -181,16 +181,16 @@
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
-            // label7
+            // lblBooksIssued
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
-            this.label7.Location = new System.Drawing.Point(16, 66);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 55);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "000";
+            this.lblBooksIssued.AutoSize = true;
+            this.lblBooksIssued.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBooksIssued.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
+            this.lblBooksIssued.Location = new System.Drawing.Point(16, 66);
+            this.lblBooksIssued.Name = "lblBooksIssued";
+            this.lblBooksIssued.Size = new System.Drawing.Size(108, 55);
+            this.lblBooksIssued.TabIndex = 1;
+            this.lblBooksIssued.Text = "000";
             // 
             // label8
             // 
@@ -206,50 +206,52 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.btnRecentBooks);
+            this.panel4.Controls.Add(this.btnRecentIssues);
             this.panel4.Location = new System.Drawing.Point(21, 352);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(389, 70);
             this.panel4.TabIndex = 5;
             // 
-            // button1
+            // btnRecentBooks
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(6, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 63);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Recent Books";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnRecentBooks.BackColor = System.Drawing.Color.Transparent;
+            this.btnRecentBooks.FlatAppearance.BorderSize = 0;
+            this.btnRecentBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecentBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecentBooks.ForeColor = System.Drawing.Color.White;
+            this.btnRecentBooks.Location = new System.Drawing.Point(3, 4);
+            this.btnRecentBooks.Name = "btnRecentBooks";
+            this.btnRecentBooks.Size = new System.Drawing.Size(184, 63);
+            this.btnRecentBooks.TabIndex = 0;
+            this.btnRecentBooks.Text = "Recent Books";
+            this.btnRecentBooks.UseVisualStyleBackColor = false;
+            this.btnRecentBooks.Click += new System.EventHandler(this.btnRecentBooks_Click);
             // 
-            // button2
+            // btnRecentIssues
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(193, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(190, 63);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Recent Issues";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnRecentIssues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
+            this.btnRecentIssues.FlatAppearance.BorderSize = 0;
+            this.btnRecentIssues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecentIssues.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecentIssues.ForeColor = System.Drawing.Color.White;
+            this.btnRecentIssues.Location = new System.Drawing.Point(193, 4);
+            this.btnRecentIssues.Name = "btnRecentIssues";
+            this.btnRecentIssues.Size = new System.Drawing.Size(193, 63);
+            this.btnRecentIssues.TabIndex = 0;
+            this.btnRecentIssues.Text = "Recent Issues";
+            this.btnRecentIssues.UseVisualStyleBackColor = false;
+            this.btnRecentIssues.Click += new System.EventHandler(this.btnRecentIssues_Click);
             // 
-            // dataGridView1
+            // dgv
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 453);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 72;
-            this.dataGridView1.RowTemplate.Height = 31;
-            this.dataGridView1.Size = new System.Drawing.Size(1167, 426);
-            this.dataGridView1.TabIndex = 6;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(21, 453);
+            this.dgv.Name = "dgv";
+            this.dgv.RowHeadersWidth = 72;
+            this.dgv.RowTemplate.Height = 31;
+            this.dgv.Size = new System.Drawing.Size(1167, 426);
+            this.dgv.TabIndex = 6;
             // 
             // FormDashboard
             // 
@@ -257,7 +259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(251)))), ((int)(((byte)(232)))));
             this.ClientSize = new System.Drawing.Size(1200, 900);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -277,7 +279,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,15 +295,15 @@
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTotalStudents;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblBooksIssued;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnRecentBooks;
+        private System.Windows.Forms.Button btnRecentIssues;
+        private System.Windows.Forms.DataGridView dgv;
     }
 }

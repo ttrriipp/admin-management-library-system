@@ -5,7 +5,6 @@ namespace AdminManagementLibrarySystem
 {
     internal class Table
     {
-
         public static void style(DataGridView dgv)
         {
             dgv.BorderStyle = BorderStyle.None;
@@ -28,7 +27,6 @@ namespace AdminManagementLibrarySystem
             dgv.RowTemplate.Height = 35;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.AllowUserToResizeRows = false;
-            dgv.AllowUserToResizeColumns = false;
 
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.MultiSelect = false;

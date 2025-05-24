@@ -13,7 +13,7 @@ namespace AdminManagementLibrarySystem
 {
     public partial class FormLogin : Form
     {
-        MySqlConnection connect = new MySqlConnection("server=localhost;user id=root;password=;database=librarysys");
+        MySqlConnection connect = new MySqlConnection(Config.connString);
         MySqlCommand comm;
         MySqlDataReader mdr;
         public FormLogin()
@@ -31,6 +31,11 @@ namespace AdminManagementLibrarySystem
                 mdr = comm.ExecuteReader();
                 if (mdr.HasRows)
                 {
+                    while (mdr.Read())
+                    {
+                        Config.user_id = mdr["id"].ToString();
+                        Config.username = mdr["username"].ToString();
+                    }
                     this.Hide();
                     FormMainAdmin formMainAdmin = new FormMainAdmin();
                     formMainAdmin.Show();

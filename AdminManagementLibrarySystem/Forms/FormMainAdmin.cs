@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace AdminManagementLibrarySystem
 {
@@ -39,7 +36,6 @@ namespace AdminManagementLibrarySystem
         private void btnStudents_Click(object sender, EventArgs e)
         {
             show(new FormStudents());
-
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -47,23 +43,15 @@ namespace AdminManagementLibrarySystem
             if (MessageBox.Show("Are you sure you want to logout?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes){
                 FormLogin loginForm = new FormLogin();
                 loginForm.Show();
+                Config.username = "";
+                Config.user_id = "";
                 Hide();
             }
         }
 
-        private void FormMainAdmin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            System.Windows.Forms.Application.Exit();
-        }
-
-        private void FormMainAdmin_Load(object sender, EventArgs e)
-        {
-        }
-
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            show(new FormReturnBook());
-
+            show(new FormBookLoans());
         }
 
         private void btnIssue_Click(object sender, EventArgs e)
