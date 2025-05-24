@@ -33,8 +33,7 @@ namespace AdminManagementLibrarySystem
                 MessageBox.Show(e.Message.ToString());
             }
             SelectTable(tables[0]);
-        }
-
+        } 
         private void FormIssueBook_Load(object sender, EventArgs e)
         {
             ShowSelectedTable();
@@ -49,11 +48,11 @@ namespace AdminManagementLibrarySystem
             switch (activeTable)
             {
                 case "books":
-                    query = "SELECT id, title, author, ISBN, category, quantity FROM books WHERE status = 'active' AND quantity > 0";
+                    query = "SELECT id AS ID, title AS Title, author AS Author, ISBN, category AS Category, quantity AS Quantity FROM books WHERE status = 'active' AND quantity > 0";
 		    da = new MySqlDataAdapter(query, conn);
                     break;
                 case "students":
-                    query = "SELECT id, last_name, first_name, email, department, course FROM students WHERE status = 'active'";
+                    query = "SELECT id AS ID, last_name AS 'Last Name', first_name AS 'First Name', email AS 'Email', department AS 'Department', course AS 'Course' FROM students WHERE status = 'active'";
 		    da = new MySqlDataAdapter(query, conn);
                     break;
             }
@@ -182,13 +181,13 @@ namespace AdminManagementLibrarySystem
             switch(activeTable)
             {
                 case "books":
-                    query = "SELECT id, title, author, ISBN, category, quantity " +
+                    query = "SELECT id AS ID, title AS Title, author AS Author, ISBN, category AS Category, quantity AS Quantity" +
                         "FROM books WHERE status = 'active' AND quantity > 0 AND (title LIKE @input OR id LIKE @input OR ISBN LIKE @input)";
                     cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@input", $"%{input}%");
                     break;
                 case "students":
-                    query = "SELECT id, last_name, first_name, email, department, course FROM students WHERE status = 'active' AND (last_name " +
+                    query = "SELECT id AS ID, last_name AS 'Last Name', first_name AS 'First Name', email AS Email, department AS Department, course AS Course FROM students WHERE status = 'active' AND (last_name " +
                         "LIKE @input OR first_name LIKE @input OR id LIKE @input OR email LIKE @input)";
                     cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@input", $"%{input}%");
