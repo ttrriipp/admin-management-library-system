@@ -125,7 +125,11 @@ namespace AdminManagementLibrarySystem
             }
             double daysDifference = (int)(DateTime.Now - dueDate).TotalDays;
             string calculatedFineAmount = (daysDifference * 100.00).ToString();
-            return calculatedFineAmount;
+            if (Int32.Parse(calculatedFineAmount) > 0)
+            {
+                return calculatedFineAmount; 
+            }
+            return initialFineAmount;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -161,9 +165,9 @@ namespace AdminManagementLibrarySystem
                     if (dtpReturnDate.Enabled)
                     {
                         cmd.Parameters.AddWithValue("@returnDate", dtpReturnDate.Text);
-                        if (dtpReturnDate.Value < dtpIssueDate.Value || dtpReturnDate.Value < dtpDueDate.Value)
+                        if (dtpReturnDate.Value < dtpIssueDate.Value)
                         {
-                            MessageBox.Show("Return Date must not be earlier than Issue Date or Return Date!", "Invalid Dates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Return Date must not be earlier than Issue Date!", "Invalid Dates", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
                     }

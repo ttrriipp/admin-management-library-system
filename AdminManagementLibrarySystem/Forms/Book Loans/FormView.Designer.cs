@@ -239,9 +239,8 @@
             this.lblNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(85)))), ((int)(((byte)(115)))));
             this.lblNotes.Location = new System.Drawing.Point(11, 8);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(66, 29);
+            this.lblNotes.Size = new System.Drawing.Size(0, 29);
             this.lblNotes.TabIndex = 1;
-            this.lblNotes.Text = "wew";
             // 
             // flowLayoutPanel1
             // 
@@ -362,7 +361,7 @@
             this.lblIssueDate.TabIndex = 1;
             this.lblIssueDate.Text = "Issue Date: ";
             // 
-            // FormViewLoan
+            // FormView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -372,7 +371,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormViewLoan";
+            this.Name = "FormView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormConfirmIssue_Load);
             this.panel2.ResumeLayout(false);
